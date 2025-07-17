@@ -1,4 +1,5 @@
-📚 Personal Library Tracker
+<span style="font-size: 36px;">📚 Personal Library Tracker</span>
+
 A full-stack MERN application that allows users to track, organize, and manage their personal library of books. Users can add, edit, and delete books, view their library, and manage their profile with a user-friendly interface and secure authentication.
 
 🔗 Live Demo
