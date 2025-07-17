@@ -195,7 +195,6 @@ const Login = () => {
               Register
             </Link>
           </Typography>
-          <p>If u are facing problem with Forgot PassWord Option fill the feedback form with correct creadentials we will update it ASAP</p>
         </Box>
       </Paper>
 
