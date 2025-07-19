@@ -31,7 +31,8 @@ const Profile = () => {
         setUser(data);
         setUsername(data.username || '');
         if (data.profilePicture) {
-          setPreview(`http://localhost:5000/${data.profilePicture}`);
+          setPreview(`${process.env.REACT_APP_API_URL}/${data.profilePicture}`);
+
         }
       } catch (err) {
         console.error(err);
@@ -61,7 +62,8 @@ const Profile = () => {
       const updated = await authService.updateProfile(formData);
       setUser(updated);
       if (updated.profilePicture) {
-        setPreview(`http://localhost:5000/${updated.profilePicture}`);
+        setPreview(`${process.env.REACT_APP_API_URL}/${updated.profilePicture}`);
+
       }
 
       setSnackbarOpen(true); // ✅ Show success popup
