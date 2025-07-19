@@ -1,7 +1,9 @@
 import axios from 'axios';
 
-const AUTH_URL = 'http://localhost:5000/api/auth';
-const OTP_URL = 'http://localhost:5000/api/otp';
+const BASE_URL = import.meta.env.VITE_API_URL;
+const AUTH_URL = `${BASE_URL}/api/auth`;
+const OTP_URL = `${BASE_URL}/api/otp`;
+
 
 const login = async (credentials) => {
   const { data } = await axios.post(`${AUTH_URL}/login`, credentials);
