@@ -51,7 +51,7 @@ const Register = () => {
     if (profilePicture) fd.append('profilePicture', profilePicture);
 
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/register', fd, {
+      const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/auth/register`, fd,{
         headers: { 'Content-Type': 'multipart/form-data' },
       });
 
