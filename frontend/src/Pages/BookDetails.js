@@ -48,22 +48,22 @@ const BookDetails = () => {
   };
 
   if (loading) {
-      return (
-        <Box sx={{ display: 'flex', justifyContent: 'center', mt: 18 }}>
-          <CircularProgress size={60} color="primary" />
-        </Box>
-      );
-    }
+    return (
+      <Box sx={{ display: 'flex', justifyContent: 'center', mt: 18 }}>
+        <CircularProgress size={60} color="primary" />
+      </Box>
+    );
+  }
+
   if (!book) return <Typography sx={{ mt: 5 }}>Book not found</Typography>;
 
   return (
-    <Container  sx={{ mt: 5 }}>
+    <Container sx={{ mt: 5 }}>
       <Paper elevation={4} sx={{ p: 4, borderRadius: 3 }}>
         {/* Title and Actions */}
         <Box
           sx={{
             display: 'flex',
-            
             justifyContent: 'space-between',
             flexWrap: 'wrap',
             mb: 4,
@@ -99,7 +99,7 @@ const BookDetails = () => {
           {book.coverImage && (
             <Box sx={{ flex: '1', textAlign: 'center' }}>
               <img
-                src={`http://localhost:5000/${book.coverImage}`}
+                src={`${process.env.REACT_APP_API_URL}/${book.coverImage}`}
                 alt={book.title}
                 style={{
                   maxWidth: '100%',

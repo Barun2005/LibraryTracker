@@ -1,7 +1,7 @@
 // src/services/bookService.js
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api/books';
+const API_URL = `${process.env.REACT_APP_API_URL}/api/books`;
 
 const getToken = () => localStorage.getItem('token');
 
@@ -43,7 +43,7 @@ const getBook = async (id) => {
 const addBook = async (bookData) => {
   const formData = appendFormData(bookData);
   const { data } = await axios.post(API_URL, formData, {
-    headers: authHeaders(), // No need to set Content-Type manually
+    headers: authHeaders(),
   });
   return data;
 };
@@ -72,7 +72,7 @@ const searchGoogleBooks = async (query) => {
 
 export default {
   getBooks,
-  getBook,           // ✅ Added
+  getBook,
   addBook,
   updateBook,
   deleteBook,

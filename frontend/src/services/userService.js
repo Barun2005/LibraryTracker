@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api/user';
+const API_URL = `${process.env.REACT_APP_API_URL}/api/user`;
 
 const getToken = () => localStorage.getItem('token');
 
@@ -9,7 +9,9 @@ const authHeaders = () => ({
 });
 
 const getProfile = async () => {
-  const { data } = await axios.get(`${API_URL}/profile`, { headers: authHeaders() });
+  const { data } = await axios.get(`${API_URL}/profile`, {
+    headers: authHeaders()
+  });
   return data;
 };
 

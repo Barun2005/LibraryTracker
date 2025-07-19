@@ -20,19 +20,16 @@ const Dashboard = () => {
   const [books, setBooks] = useState([]);
   const [filters, setFilters] = useState({});
   const [loading, setLoading] = useState(true);
- const { user, setUser } = useContext(AuthContext);
-
+  const { user, setUser } = useContext(AuthContext);
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // 🧠 Try to get user from backend
         let userData = null;
         try {
           userData = await authService.getCurrentUser();
         } catch {
-          // fallback if backend fails: use localStorage
           const stored = localStorage.getItem('user');
           if (stored) userData = JSON.parse(stored);
         }
@@ -101,7 +98,7 @@ const Dashboard = () => {
               <Avatar
                 src={
                   user.profilePicture
-                    ? `http://localhost:5000/${user.profilePicture}`
+                    ? `${process.env.REACT_APP_API_URL}/${user.profilePicture}`
                     : ''
                 }
                 sx={{ width: 72, height: 72, fontSize: 32, bgcolor: 'primary.main' }}
