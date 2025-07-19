@@ -21,9 +21,11 @@ const BookCard = ({ book, onDelete }) => {
     'Read': 'success',
   };
 
-  const viewURL = book.file ? `http://localhost:5000/${book.file}` : null;
+  const API_URL = process.env.REACT_APP_API_URL;
+
+  const viewURL = book.file ? `${API_URL}/${book.file}` : null;
   const downloadURL = book.file
-    ? `http://localhost:5000/download/${book.file.replace(/^uploads[\\/]/, '')}`
+    ? `${API_URL}/download/${book.file.replace(/^uploads[\\/]/, '')}`
     : null;
 
   return (
@@ -32,7 +34,7 @@ const BookCard = ({ book, onDelete }) => {
         <CardMedia
           component="img"
           height="180"
-          image={`http://localhost:5000/${book.coverImage}`}
+          image={`${API_URL}/${book.coverImage}`}
           alt={book.title}
           sx={{ objectFit: 'cover' }}
         />

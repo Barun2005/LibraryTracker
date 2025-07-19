@@ -24,6 +24,8 @@ const BookForm = ({ initialData = {}, onSubmit }) => {
     existingFile: ''
   });
 
+  const API_URL = process.env.REACT_APP_API_URL;
+
   useEffect(() => {
     if (initialData && initialData._id) {
       setFormData((prev) => ({
@@ -157,7 +159,7 @@ const BookForm = ({ initialData = {}, onSubmit }) => {
             ) : formData.existingCoverImage ? (
               <Box mt={1}>
                 <img
-                  src={`http://localhost:5000/${formData.existingCoverImage}`}
+                  src={`${API_URL}/${formData.existingCoverImage}`}
                   alt="Existing thumbnail"
                   style={{ width: '100px', borderRadius: '4px' }}
                 />

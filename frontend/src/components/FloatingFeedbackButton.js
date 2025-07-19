@@ -32,7 +32,8 @@ const FloatingFeedbackButton = () => {
   const handleSubmit = async () => {
     setLoading(true);
     try {
-      await axios.post('/api/feedback', form);
+      await axios.post(`${process.env.REACT_APP_API_URL}/api/feedback`, form);
+
       setSnackbarOpen(true);
       setOpen(false);
       setForm({ name: '', email: '', message: '' });
