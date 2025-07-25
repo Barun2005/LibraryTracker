@@ -45,7 +45,7 @@ exports.register = async (req, res) => {
           <p>📚 Start managing your books today with ease and clarity.</p>
 
           <p>
-            <a href="http://localhost:5173" target="_blank"
+            <a href="https://personal-library-tracker.vercel.app" target="_blank"
               style="display: inline-block; padding: 10px 20px; background-color: #1976d2; color: white; text-decoration: none; border-radius: 4px;">
               Go to your Dashboard
             </a>
