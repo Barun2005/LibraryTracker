@@ -36,6 +36,8 @@ const Header = () => {
 
   useEffect(() => {
     const fetchUser = async () => {
+       const token = authService.getToken();
+       if (!token) return; 
       try {
         const res = await authService.getCurrentUser();
         setUser(res);

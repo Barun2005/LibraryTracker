@@ -19,21 +19,16 @@ router.post('/', async (req, res) => {
     });
 
     const mailOptions = {
-      from: `"${name}" <${process.env.EMAIL_USER}>`,
-      replyTo: email,
+      from: email,
       to: process.env.EMAIL_USER,
       subject: '📬 New Feedback Received',
-      text: `
-        Name: ${name}
-        Email: ${email}
-        Message: ${message}
-      `,
+      text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
     };
 
     await transporter.sendMail(mailOptions);
     res.status(200).json({ message: 'Feedback sent successfully.' });
   } catch (error) {
-    console.error('Full email send error:', error);
+    console.error('❌ Full email send error:', error);
     res.status(500).json({ error: 'Failed to send feedback.' });
   }
 });
