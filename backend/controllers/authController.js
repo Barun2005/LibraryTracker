@@ -4,10 +4,10 @@ const bcrypt = require('bcryptjs');
 const sendEmail = require('../utils/sendEmail');
 const Otp = require('../models/Otp');
 
-// Utility: Generate 6-digit OTP
+//  Generate 6-digit OTP
 const generateOtp = () => Math.floor(100000 + Math.random() * 900000).toString();
 
-// Utility: Create JWT token
+//  Create JWT token
 const createToken = (userId) =>
   jwt.sign({ userId }, process.env.JWT_SECRET || 'default_secret', {
     expiresIn: '7d',

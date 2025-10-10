@@ -24,6 +24,7 @@ exports.addBook = async (req, res) => {
   }
 };
 
+
 /* ----------  READ ALL  ---------- */
 exports.getBooks = async (req, res) => {
   try {
@@ -42,6 +43,7 @@ exports.getBooks = async (req, res) => {
   }
 };
 
+
 /* ----------  GET SINGLE BOOK  ---------- */
 exports.getBook = async (req, res) => {
   try {
@@ -53,6 +55,7 @@ exports.getBook = async (req, res) => {
     res.status(500).json({ message: 'Server error' });
   }
 };
+
 
 /* ----------  UPDATE  ---------- */
 exports.updateBook = async (req, res) => {
@@ -85,6 +88,7 @@ exports.updateBook = async (req, res) => {
   }
 };
 
+
 /* ----------  DELETE  ---------- */
 exports.deleteBook = async (req, res) => {
   try {
@@ -101,25 +105,5 @@ exports.deleteBook = async (req, res) => {
   }
 };
 
-/* ----------  GOOGLE BOOKS API SEARCH  ---------- */
-exports.searchGoogleBooks = async (req, res) => {
-  try {
-    const { query } = req.params;
 
-    const response = await axios.get(
-      `https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(query)}&key=${process.env.GOOGLE_BOOKS_API_KEY}`
-    );
 
-    const books = (response.data.items || []).map(item => ({
-      title: item.volumeInfo.title,
-      author: item.volumeInfo.authors ? item.volumeInfo.authors.join(', ') : 'Unknown',
-      genre: item.volumeInfo.categories ? item.volumeInfo.categories[0] : 'Unknown',
-      coverImage: item.volumeInfo.imageLinks?.thumbnail || null,
-    }));
-
-    res.json(books);
-  } catch (err) {
-    console.error('GoogleBooksSearch error:', err.message);
-    res.status(500).json({ message: 'Server error' });
-  }
-};

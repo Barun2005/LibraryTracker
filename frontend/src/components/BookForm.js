@@ -167,8 +167,6 @@ const BookForm = ({ initialData = {}, onSubmit }) => {
             ) : null}
           </Grid>
         </Grid>
-
-        {/* Centered Submit Button */}
         <Box display="flex" justifyContent="center" mt={4}>
           <Button
             type="submit"
