@@ -34,8 +34,4 @@ router.put(
 
 // Delete book
 router.delete('/:id', auth, bookController.deleteBook);
-
-// Google Books search
-router.get('/search/:query', auth, bookController.searchGoogleBooks);
-
 module.exports = router;
