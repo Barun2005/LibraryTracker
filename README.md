@@ -2,7 +2,7 @@
 
 A full-stack **MERN** application that allows users to **track, organize, and manage** their personal library of books. Users can **add, edit, and delete** books, view their library, and manage their profile with a **user-friendly interface** and **secure authentication**.
 
-🔗 **Live Demo:** [https://personal-library-tracker.vercel.app](https://personal-library-tracker.vercel.app)
+
 
 ---
 
@@ -41,8 +41,4 @@ A full-stack **MERN** application that allows users to **track, organize, and ma
 - 🔧 **Frontend** hosted on [Vercel](https://vercel.com)  
 - 🔧 **Backend** hosted on [Render](https://render.com)
 
----
 
-## 🙋‍♂️ Creator  
-**Yash Pratap Rai**  
-🔗 [Connect on LinkedIn](https://www.linkedin.com/in/yash-pratap-rai-00465a284/)
